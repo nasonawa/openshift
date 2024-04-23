@@ -13,7 +13,7 @@ RUN /usr/local/s2i/assemble
 FROM registry.redhat.io/jboss-eap-7/eap74-openjdk11-runtime-openshift-rhel8 as RUNTIME
 USER root
 COPY --from=BUILDER --chown=jboss:root $JBOSS_HOME $JBOSS_HOME
-COPY openshift/Dockerfile $JBOSS_HOME/standalone/deployments/
+COPY ./jbossopenshift.ear $JBOSS_HOME/standalone/deployments/
 
 # (Optional) set ENV variable CONFIG_IS_FINAL to true if no modification is needed by start up scripts.  
 #  For example:
