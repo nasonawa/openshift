@@ -1,11 +1,11 @@
 FROM registry.redhat.io/jboss-eap-7/eap74-openjdk11-openshift-rhel8 as BUILDER
 
 # This option will include all layers:
-# ENV GALLEON_PROVISION_DEFAULT_FAT_SERVER=true
+ENV GALLEON_PROVISION_DEFAULT_FAT_SERVER=true
 
 # Alternatively you can specify one of the layers as shown in the docs, which would reduce the image size by trimming down to only what is needed
 # https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/getting_started_with_jboss_eap_for_openshift_container_platform/index#capability-trimming-eap-foropenshift_default
-# ENV GALLEON_PROVISION_LAYERS=datasources-web-server
+#ENV GALLEON_PROVISION_LAYERS=datasources-web-server
 
 RUN /usr/local/s2i/assemble
 
